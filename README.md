@@ -8,3 +8,5 @@ A REST API in django for a mobile game
 4. Create new virtual environment (virtualenv env)
 5. Activate the environment (source env/bin/activate)
 6. Install requirements (pip install -r requirements.text)
+
+when you are done, use: "deactivate" to exit the virutal environment.
