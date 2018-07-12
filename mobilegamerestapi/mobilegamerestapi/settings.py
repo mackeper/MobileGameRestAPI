@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'score.apps.ScoreConfig',
+    'user.apps.UserConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

@@ -10,12 +10,11 @@ class ScoreViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list`, `create`, `retrieve`,
     `update` and `destroy` actions.
-
     """
     queryset = Score.objects.all()
     serializer_class = ScoreSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+    #                      IsOwnerOrReadOnly,)
                           
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    #def perform_create(self, serializer):
+    #    serializer.save(user=self.request.user)

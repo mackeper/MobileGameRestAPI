@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from user.serializers import UserSerializer
 
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list` and `detail` actions.
     """

@@ -1,11 +1,18 @@
 from rest_framework import serializers
 from score.models import Score
-from django.contrib.auth.models import User
+from user.models import User
 
 
 class ScoreSerializer(serializers.HyperlinkedModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    username = serializers.CharField(source='user.username', read_only=True)
 
     class Meta:
         model = Score
-        fields = ('url', 'id', 'name', 'score', 'date', 'owner',)
+        fields = (
+            'url', 
+            'id', 
+            'user',
+            'score', 
+            'date', 
+            'username',
+            )
