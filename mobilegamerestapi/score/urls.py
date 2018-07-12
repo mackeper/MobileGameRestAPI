@@ -1,27 +1,13 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
-from django.conf.urls import include
+from django.conf.urls import url, include
+from rest_framework.routers import DefaultRouter
 
 from score import views
 
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'score', views.ScoreViewSet)
+router.register(r'users', views.UserViewSet)
+
 urlpatterns = [
-    url(r'^$', views.api_root),
-    url(r'^scores/$', 
-        views.ScoreList.as_view(),
-        name='score-list'),
-    url(r'^scores/(?P<pk>[0-9]+)/$', 
-        views.ScoreDetail.as_view(),
-        name='score-detail'),
-    url(r'^users/$', 
-        views.UserList.as_view(),
-        name='user-list'),
-    url(r'^users/(?P<pk>[0-9]+)/$', 
-        views.UserDetail.as_view(),
-        name='user-detail'),
-]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
-
-urlpatterns += [
-    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^', include(router.urls))
 ]
