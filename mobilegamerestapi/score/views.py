@@ -5,6 +5,8 @@ from score.models import Score
 from score.serializers import ScoreSerializer
 from score.permissions import IsOwnerOrReadOnly
 
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class ScoreViewSet(viewsets.ModelViewSet):
     """
@@ -13,8 +15,6 @@ class ScoreViewSet(viewsets.ModelViewSet):
     """
     queryset = Score.objects.all()
     serializer_class = ScoreSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-    #                      IsOwnerOrReadOnly,)
-                          
-    #def perform_create(self, serializer):
-    #    serializer.save(user=self.request.user)
+    
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)

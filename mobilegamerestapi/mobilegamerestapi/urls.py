@@ -24,7 +24,7 @@ from user.views import UserViewSet
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
-router.register(r'score', ScoreViewSet)
+router.register(r'scores', ScoreViewSet)
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
