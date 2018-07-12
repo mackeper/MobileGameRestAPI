@@ -10,3 +10,25 @@ A REST API in django for a mobile game
 6. Install requirements (pip install -r requirements.txt)
 
 when you are done, use: "deactivate" to exit the virutal environment.
+
+# Access the API (Token auth)
+## Generate a token
+1. Create a user (python manage.py createsuperuser).
+2. Go to localhost:8000/admin and log in with your user.
+3. Go to the table "Tokens".
+4. Press "Add token".
+5. Choose your user an press "SAVE".
+
+You should now see a token that look like: "02ffe8c6c2851ccc8b458e39049d6b4f94be5a25"
+
+## Access the browsable API
+1. Go to localhost:8000/admin and log in with your user.
+2. Go to localhost:8000 and you should now have access to the api.
+
+## Access the API using curl
+### Scores example
+Get all scores
+* curl -X GET 'http://localhost:8000/scores/' -H 'Authorization: Token 02ffe8c6c2851ccc8b458e39049d6b4f94be5a25'
+
+Add new score
+* curl -X POST 'http://localhost:8000/scores/' -H 'Content-Type: application/json' -H 'Authorization: Token 02ffe8c6c2851ccc8b458e39049d6b4f94be5a25' -d '{"user": "http://localhost:8000/users/1/", "score":"1337"}'
