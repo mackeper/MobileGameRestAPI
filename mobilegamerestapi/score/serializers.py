@@ -1,17 +1,17 @@
 from rest_framework import serializers
 from score.models import Score
+from django.contrib.auth.models import User
 
-"""
-class ScoreSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(max_length=30)
-    score = serializers.IntegerField()
+class ScoreSerializer(serializers.HyperlinkedModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
 
-    def create(self, validated_data):
-        return Score.objects.create(**validated_data)
-"""
-
-class ScoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Score
-        fields = ('id', 'name', 'score', 'date',)
+        fields = ('url', 'id', 'name', 'score', 'date', 'owner',)
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    score = serializers.HyperlinkedRelatedField(many=True, view_name='score-detail', read_only=True)
+
+    class Meta:
+        model = User
+        fields = ('url', 'id', 'username', 'score', )
