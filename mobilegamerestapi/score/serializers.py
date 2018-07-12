@@ -9,10 +9,10 @@ class ScoreSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Score
         fields = (
-            'url', 
-            'id', 
+            'url',
+            'id',
             'user',
-            'score', 
-            'date', 
+            'score',
+            'date',
             'username',
-            )
+        )

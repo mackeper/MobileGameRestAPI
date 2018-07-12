@@ -23,9 +23,3 @@ class ScoreViewSet(viewsets.ModelViewSet):
         TokenAuthentication,
     )
     permission_classes = (IsAuthenticated,)
-
-    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-    #                      IsOwnerOrReadOnly,)
-
-    # def perform_create(self, serializer):
-    #    serializer.save(user=self.request.user)
