@@ -11,3 +11,6 @@ class Score(models.Model):
 
     def save(self, *args, **kwargs):
         super(Score, self).save(*args, **kwargs)
+        
+    def __str__(self):
+        return self.name + " " + str(self.score)
