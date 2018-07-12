@@ -13,11 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from rest_framework.routers import DefaultRouter
+
+from score.views import ScoreViewSet
+from user.views import UserViewSet
+
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'score', ScoreViewSet)
+router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('score.urls')),
+    url(r'^', include(router.urls))
 ]
