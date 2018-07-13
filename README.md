@@ -2,14 +2,21 @@
 A REST API in django for a mobile game
 
 ## Install
-1. Install python3 (apt-get install python3)
-2. Install pip3 (apt-get install python3-pip)
-3. Install virutalenv (pip3 install virtualenv)
-4. Create new virtual environment (virtualenv env)
-5. Activate the environment (source env/bin/activate)
-6. Install requirements (pip install -r requirements.txt)
+1. Install python3 (`apt-get install python3`)
+2. Install pip3 (`apt-get install python3-pip`)
+3. Install virutalenv (`pip3 install virtualenv`)
+4. Create new virtual environment (`virtualenv env`)
+5. Activate the environment (`source env/bin/activate`)
+6. Install requirements (`pip install -r requirements.txt`)
 
-when you are done, use: "deactivate" to exit the virutal environment.
+When you are done, use: `deactivate` to exit the virutal environment.
+
+To update requiements just run step 6 again.
+
+## Add new requiements
+1. Activate the environment (`source env/bin/activate`)
+2. Install the package using pip
+3. run `pip freeze --local > requirements.txt`
 
 # Access the API (Token auth)
 ## Generate a token
