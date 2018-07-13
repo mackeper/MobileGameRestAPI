@@ -11,9 +11,9 @@ A REST API in django for a mobile game
 
 When you are done, use: `deactivate` to exit the virutal environment.
 
-To update requiements just run step 6 again.
+To update requirements just run step 6 again.
 
-## Add new requiements
+## Add new requirements
 1. Activate the environment (`source env/bin/activate`)
 2. Install the package using pip
 3. run `pip freeze --local > requirements.txt`
