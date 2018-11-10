@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn deamon
+After=network.target
+
+[Service]
+User=marcus
+Group=www-data
+WorkingDirectory=/home/marcus/dev/MobileGameRestAPI/mobilegamerestapi
+ExecStart=/home/marcus/dev/MobileGameRestAPI/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/marcus/dev/MobileGameRestAPI/mobilegamerestapi.sock mobilegamerestapi.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
