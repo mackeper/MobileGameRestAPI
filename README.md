@@ -18,6 +18,9 @@ To update requirements just run step 6 again.
 2. Install the package using pip
 3. run `pip freeze --local > requirements.txt`
 
+# Deployment
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
+
 # Access the API (Token auth)
 ## Generate a token
 1. Create a user (python manage.py createsuperuser).
